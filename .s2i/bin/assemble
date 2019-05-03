@@ -28,6 +28,6 @@ pushd ${HOME}/src > /dev/null
 ${HOME}/lein uberjar
 
 # Why src needs to be here... not getting it.
-mv ${HOME}/src/target/uberjar/demoapp.jar ${HOME}/app-standalone.jar
+mv /opt/app-root/src/src/target/uberjar/demoapp.jar ${HOME}/app-standalone.jar
 
 popd > /dev/null
