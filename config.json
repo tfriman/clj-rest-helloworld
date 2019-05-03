@@ -1,0 +1,59 @@
+{
+    "apiVersion": "image.openshift.io/v1",
+    "kind": "ImageStream",
+    "metadata": {
+	"annotations": {
+	    "openshift.io/display-name": "S2I Clojure"
+
+	},
+	"creationTimestamp": "2019-04-09T17:28:45Z",
+	"generation": 1,
+	"labels": {
+	    "build": "s2i-clojure-headless-new"
+	},
+	"name": "s2i-clojure-headless-new",
+	"namespace": "clojure-s2i",
+	"resourceVersion": "2252602",
+	"selfLink": "/apis/image.openshift.io/v1/namespaces/clojure-s2i/imagestreams/s2i-clojure-headless-new",
+	"uid": "ed96f84c-5aec-11e9-a412-52540060968e"
+    },
+    "spec": {
+	"lookupPolicy": {
+	    "local": false
+	},
+	"tags": [
+	    {
+		"name": "latest",
+		"annotations": {
+		    "openshift.io/display-name": "S2I Clojure xxx",
+		    "description": "Build and deploy a Clojure app",
+		    "iconClass": "icon-clojure",
+		    "sampleRepo": "https://github.com/getwarped/sample-notebooks.git",
+		    "tags": "builder,clojure",
+		    "version": "latest"
+		},
+		"from": {
+		    "kind": "DockerImage",
+		    "name": "clojure-s2i/s2i-clojure-healdess-new:latest"
+		}
+	    }
+	]
+
+    },
+    "status": {
+	"dockerImageRepository": "docker-registry.default.svc:5000/clojure-s2i/s2i-clojure-headless-new",
+	"tags": [
+	    {
+		"items": [
+		    {
+			"created": "2019-04-09T17:31:39Z",
+			"dockerImageReference": "docker-registry.default.svc:5000/clojure-s2i/s2i-clojure-headless-new@sha256:ee0a0dd831eb518fb77278fe8e9e1a5df5105fd38173ce4eb9fec126af4793d4",
+			"generation": 1,
+			"image": "sha256:ee0a0dd831eb518fb77278fe8e9e1a5df5105fd38173ce4eb9fec126af4793d4"
+		    }
+		],
+		"tag": "latest"
+	    }
+	]
+    }
+}
