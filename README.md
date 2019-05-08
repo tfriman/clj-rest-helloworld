@@ -1,6 +1,6 @@
 # Clojure demo app
 
-App generated using Luminus version "3.22".
+App generated using Luminus version "3.22". Used for build demonstrations.
 
 ## Prerequisites
 
