@@ -1,8 +1,6 @@
-# demoapp
+# Clojure demo app
 
-generated using Luminus version "3.22"
-
-FIXME
+App generated using Luminus version "3.22".
 
 ## Prerequisites
 
@@ -12,10 +10,12 @@ You will need [Leiningen][1] 2.0 or above installed.
 
 ## Running
 
-To start a web server for the application, run:
+Create uberjar:
 
-    lein run 
+    lein uberjar
 
-## License
+and then run:
+    java -Dport=8080 -jar target/uberjar/demoapp.jar
 
-Copyright © 2019 FIXME
+Open your browser [http://localhost:8080](http://localhost:8080). 8080
+is the default port but for completeness sake -Dport is shown.
