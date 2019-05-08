@@ -15,6 +15,7 @@ Create uberjar:
     lein uberjar
 
 and then run:
+
     java -Dport=8080 -jar target/uberjar/demoapp.jar
 
 Open your browser [http://localhost:8080](http://localhost:8080). 8080
