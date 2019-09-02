@@ -36,7 +36,10 @@
   :target-path "target/%s/"
   :main demoapp.core
 
-  :plugins [[lein-immutant "2.1.0"]]
+  :aot :all
+
+  :plugins [[lein-immutant "2.1.0"]
+            [io.taylorwood/lein-native-image "0.3.0"]]
 
   :profiles
   {:uberjar {:omit-source true
