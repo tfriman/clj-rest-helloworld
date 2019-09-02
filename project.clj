@@ -27,13 +27,14 @@
                  [ring/ring-defaults "0.3.2"]
                  [selmer "1.12.11"]]
 
+
   :min-lein-version "2.0.0"
-  
+
   :source-paths ["src/clj"]
   :test-paths ["test/clj"]
   :resource-paths ["resources"]
   :target-path "target/%s/"
-  :main ^:skip-aot demoapp.core
+  :main demoapp.core
 
   :plugins [[lein-immutant "2.1.0"]]
 
@@ -54,7 +55,7 @@
                                  [ring/ring-devel "1.7.1"]
                                  [ring/ring-mock "0.3.2"]]
                   :plugins      [[com.jakemccrary/lein-test-refresh "0.23.0"]]
-                  
+
                   :source-paths ["env/dev/clj"]
                   :resource-paths ["env/dev/resources"]
                   :repl-options {:init-ns user}
@@ -63,4 +64,17 @@
    :project/test {:jvm-opts ["-Dconf=test-config.edn"]
                   :resource-paths ["env/test/resources"]}
    :profiles/dev {}
-   :profiles/test {}})
+   :profiles/test {}}
+  :native-image {:name     "app"
+                 :jvm-opts ["-Dclojure.compiler.direct-linking=true"]
+                 :opts     ["--enable-url-protocols=http"
+                            "--report-unsupported-elements-at-runtime"
+                            "--initialize-at-build-time"
+                            "--allow-incomplete-classpath"
+                            ;;avoid spawning build server
+                            "--no-server"
+                            "-H:ConfigurationResourceRoots=resources"
+                            ~(str "-H:ResourceConfigurationFiles="
+                                  (System/getProperty "user.dir")
+                                  (java.io.File/separator)
+                                  "resource-config.json")]})
