@@ -1,3 +1,5 @@
 {:prod true
  :port 8080
+ :nrepl-port 7777
+ :nrepl-bind "0.0.0.0"
  :host "0.0.0.0"}

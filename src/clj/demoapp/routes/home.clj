@@ -9,16 +9,21 @@
 
 (defn home-page [request]
   (swap! counter inc)
-  (prn "home-page called now foo bar")
+  ;;(prn "home-page called now foo bar xxx>" (slurp "http://tjf.kapsi.fi/foo.json"))
+  (prn "home-page called now ")
+  (def x request)
   (layout/render request "home.html" {:docs (-> "docs/docs.md" io/resource slurp)}))
 
 (defn about-page [request]
+  (layout/render request "about.html"))
+
+(defn foo-page [request]
   (layout/render request "about.html"))
 
 (defn home-routes []
   [""
    {:middleware [middleware/wrap-csrf
 
- middleware/wrap-formats]}
+                 middleware/wrap-formats]}
    ["/" {:get (fn [r] (home-page r))}]
    ["/about" {:get about-page}]])
